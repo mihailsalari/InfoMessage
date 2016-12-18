@@ -1,0 +1,2 @@
+# InfoMessage
+Custom Informative message
