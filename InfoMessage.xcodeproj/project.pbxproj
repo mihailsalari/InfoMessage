@@ -107,10 +107,9 @@
 			children = (
 				48463C021E06A011008890BF /* Util */,
 				48463C011E06A007008890BF /* Helper */,
+				8B16E1DC1E09884900EDE5AE /* View */,
 				48463BFE1E069FF7008890BF /* ViewController */,
 				48463BFD1E069FEE008890BF /* Supporting Files */,
-				8B16E1CE1E095F7F00EDE5AE /* CircularProgressView.swift */,
-				8B16E1D01E09607300EDE5AE /* ProgressLabel.swift */,
 			);
 			path = InfoMessage;
 			sourceTree = "<group>";
@@ -167,6 +166,15 @@
 				48463C0D1E06A097008890BF /* UIKit Extensions.swift */,
 			);
 			name = Util;
+			sourceTree = "<group>";
+		};
+		8B16E1DC1E09884900EDE5AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B16E1CE1E095F7F00EDE5AE /* CircularProgressView.swift */,
+				8B16E1D01E09607300EDE5AE /* ProgressLabel.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

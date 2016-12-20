@@ -144,6 +144,9 @@ extension InfoMessageLauncher {
 
 extension InfoMessageLauncher {
     
-    func setProgress(_ progress: CGFloat) {
+    func setProgress(_ progress: Float) {
+        self.progressContainerView.progress = CGFloat(progress)
+        progressContainerView.textLabel?.style = .percent
+        progressContainerView.textLabel?.value = progress as AnyObject?
     }
 }

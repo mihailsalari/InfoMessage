@@ -24,7 +24,6 @@ class CircularProgressView: UIView {
             return mainArcLayer.strokeEnd
         }
         set {
-            
             if (newValue > 1) {
                 mainArcLayer.strokeEnd = 1
             } else if (newValue < 0) {
@@ -113,8 +112,7 @@ class CircularProgressView: UIView {
 
 extension CircularProgressView {
     
-    func configure() {
-        progress = 0.12
+    fileprivate func configure() {
         fillColor = self.backgroundColor
         
         fillArcLayer.frame = bounds
@@ -147,18 +145,17 @@ extension CircularProgressView {
         self.textLabel?.minimumScaleFactor = 0.1
         self.textLabel?.numberOfLines = 1
         self.textLabel?.style = .percent
-        self.textLabel?.text = "12 %"
         addSubview(self.textLabel!)
     }
     
-    func circleFrame() -> CGRect {
+    fileprivate func circleFrame() -> CGRect {
         var circleFrame = CGRect(x: 0, y: 0, width: (bounds.size.width - padding), height: (bounds.size.height - padding))
         circleFrame.origin.x = mainArcLayer.bounds.midX - circleFrame.midX
         circleFrame.origin.y = mainArcLayer.bounds.midY - circleFrame.midY
         return circleFrame
     }
     
-    func circlePath() -> UIBezierPath {
+    fileprivate func circlePath() -> UIBezierPath {
         return UIBezierPath(roundedRect: circleFrame(), cornerRadius: bounds.size.width/2)
     }
     

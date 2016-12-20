@@ -13,7 +13,8 @@ class InfoMessageViewController: UIViewController {
     // MARK: - Properties
     
     fileprivate let launcher = InfoMessageLauncher()
-    
+    var counter = 0
+    var timer: Timer?
     
     
     // MARK: - LyfeCicle
@@ -35,5 +36,22 @@ extension InfoMessageViewController {
     
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
         launcher.showActionSheet()
+        timer = Timer.scheduledTimer(timeInterval: 0.15, target: self, selector: #selector(startAnimate), userInfo: nil, repeats: true)
+    }
+}
+
+
+extension InfoMessageViewController {
+    
+    func startAnimate() {
+        counter += 1
+        print (counter)
+        launcher.setProgress(Float(counter) / 100.0)
+        print(Float(counter) / 100.0)
+        if counter == 100 {
+            timer?.invalidate()
+            launcher.handleDismiss()
+            counter = 0
+        }
     }
 }
