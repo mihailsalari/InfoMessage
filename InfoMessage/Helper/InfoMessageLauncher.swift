@@ -38,7 +38,7 @@ class InfoMessageLauncher: NSObject {
         return button
     }()
     
-
+    
     fileprivate lazy var centerContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -47,13 +47,11 @@ class InfoMessageLauncher: NSObject {
         return view
     }()
     
-    fileprivate lazy var progressContainerView: UIView = {
-        let view = UIView()
+    fileprivate lazy var progressContainerView: CircularProgressView = {
+        let view = CircularProgressView()
         view.backgroundColor = .clear
         view.layer.cornerRadius = 118 / 2
-        view.layer.borderWidth = 2.0
-        view.layer.borderColor = UIColor.rgb(red: 245.0, green: 245.0, blue: 247.0, alpha: 1.0).cgColor
-
+        
         return view
     }()
     
@@ -67,19 +65,6 @@ class InfoMessageLauncher: NSObject {
         
         return label
     }()
-    
-    lazy var progressLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue-Light", size: 22)
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        label.textColor =  UIColor.rgb(red: 245.0, green: 245.0, blue: 247.0, alpha: 1.0)
-        label.text = "83 %"
-        
-        return label
-    }()
-    
-    var liveProgress: Bool = true
     
     
     // MARK: - Initializers
@@ -103,19 +88,18 @@ extension InfoMessageLauncher {
         ///
         centerContainerView.addSubview(progressContainerView)
         centerContainerView.addSubview(nameLabel)
-
+        
         ///
         centerContainerView.addConstraintsWithFormat("H:|-20-[v0]-20-|", views: progressContainerView) /// 158 x 158
         centerContainerView.addConstraintsWithFormat("H:|[v0]|", views: nameLabel) /// 158 x 158
         
         centerContainerView.addConstraintsWithFormat("V:|[v0][v1(55)]|", views: progressContainerView, nameLabel)
         
-        ///
-        
-        progressContainerView.addSubview(progressLabel)
-        progressContainerView.addConstraintsWithFormat("H:|-10-[v0]-10-|", views: progressLabel)
-        progressContainerView.addConstraintsWithFormat("V:|-10-[v0]-10-|", views: progressLabel)
-        
+        /// adding constraints in show
+        if let progressLabel = self.progressContainerView.textLabel {
+            progressContainerView.addConstraintsWithFormat("H:|-10-[v0]-10-|", views: progressLabel)
+            progressContainerView.addConstraintsWithFormat("V:|-10-[v0]-10-|", views: progressLabel)
+        }
         
         ///
         centerContainerView.frame = CGRect(x: 0, y: 0, width: 158, height: 173)
@@ -132,26 +116,6 @@ extension InfoMessageLauncher {
         /// 4
         self.cancelButton.frame = CGRect(x: margin, y: window.frame.height, width: window.frame.width - (margin * 2), height: contHeight)
         
-//        /// Progress Layer
-//        let progressCircle = CAShapeLayer()
-//        progressContainerView.layoutIfNeeded()
-//        
-//        let centerPoint = CGPoint (x: progressContainerView.layer.bounds.width / 2, y: progressContainerView.layer.bounds.width / 2)
-//        let circleRadius : CGFloat = progressContainerView.layer.bounds.width / 2
-//        
-//        let circlePath = UIBezierPath(arcCenter: centerPoint, radius: circleRadius, startAngle: CGFloat(-0.5 * M_PI), endAngle: CGFloat(1.5 * M_PI), clockwise: true)
-//        
-//        progressCircle.path = circlePath.cgPath
-//        progressCircle.strokeColor = UIColor.rgb(red: 245.0, green: 245.0, blue: 247.0, alpha: 1.0).cgColor ///UIColor.darkSkyBlue.cgColor
-//        progressCircle.fillColor = UIColor.clear.cgColor
-//        progressCircle.borderWidth = 2.0
-//        progressCircle.strokeStart = 0.00
-//        progressCircle.strokeEnd = 0.22
-//        progressContainerView.layer.addSublayer(progressCircle)
-//        
-//        progressCircle.strokeEnd = 0.83
-        
-        
         
         /// 5
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: { [unowned self] in
@@ -159,6 +123,7 @@ extension InfoMessageLauncher {
             self.centerContainerView.alpha = 1.0
             self.progressContainerView.alpha = 1.0
             self.nameLabel.alpha = 1.0
+            
             
             self.cancelButton.frame = CGRect(x: margin, y: contY, width: self.cancelButton.frame.width, height: self.cancelButton.frame.height)
             }, completion: nil)

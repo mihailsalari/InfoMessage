@@ -32,3 +32,32 @@ extension UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
     }
 }
+
+
+extension UIColor {
+    class var paleGrey: UIColor {
+        return UIColor(red: 245.0 / 255.0, green: 245.0 / 255.0, blue: 247.0 / 255.0, alpha: 1.0)
+    }
+}
+
+extension UIFont {
+    class func textStyleFont(_ size: CGFloat) -> UIFont {
+        
+        if #available(iOS 8.2, *) {
+            return UIFont.systemFont(ofSize: size, weight: UIFontWeightRegular)
+        } else {
+            // Fallback on earlier versions
+            return UIFont.systemFont(ofSize: size)
+        }
+    }
+    
+    class func textStyle2Font(_ size: CGFloat) -> UIFont {
+        
+        if #available(iOS 8.2, *) {
+            return UIFont.systemFont(ofSize: size, weight: UIFontWeightLight)
+        } else {
+            // Fallback on earlier versions
+            return UIFont.systemFont(ofSize: size)
+        }
+    }
+}

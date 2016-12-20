@@ -16,6 +16,8 @@
 		48463C0A1E06A041008890BF /* InfoMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48463C091E06A041008890BF /* InfoMessageViewController.swift */; };
 		48463C0C1E06A078008890BF /* InfoMessageLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48463C0B1E06A078008890BF /* InfoMessageLauncher.swift */; };
 		48463C0E1E06A097008890BF /* UIKit Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48463C0D1E06A097008890BF /* UIKit Extensions.swift */; };
+		8B16E1CF1E095F7F00EDE5AE /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B16E1CE1E095F7F00EDE5AE /* CircularProgressView.swift */; };
+		8B16E1D11E09607300EDE5AE /* ProgressLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B16E1D01E09607300EDE5AE /* ProgressLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		48463C091E06A041008890BF /* InfoMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoMessageViewController.swift; path = ViewController/InfoMessageViewController.swift; sourceTree = "<group>"; };
 		48463C0B1E06A078008890BF /* InfoMessageLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoMessageLauncher.swift; path = Helper/InfoMessageLauncher.swift; sourceTree = "<group>"; };
 		48463C0D1E06A097008890BF /* UIKit Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIKit Extensions.swift"; path = "Util/UIKit Extensions.swift"; sourceTree = "<group>"; };
+		8B16E1CE1E095F7F00EDE5AE /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircularProgressView.swift; path = View/CircularProgressView.swift; sourceTree = "<group>"; };
+		8B16E1D01E09607300EDE5AE /* ProgressLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressLabel.swift; path = View/ProgressLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				48463C011E06A007008890BF /* Helper */,
 				48463BFE1E069FF7008890BF /* ViewController */,
 				48463BFD1E069FEE008890BF /* Supporting Files */,
+				8B16E1CE1E095F7F00EDE5AE /* CircularProgressView.swift */,
+				8B16E1D01E09607300EDE5AE /* ProgressLabel.swift */,
 			);
 			path = InfoMessage;
 			sourceTree = "<group>";
@@ -301,7 +307,9 @@
 				48463C0A1E06A041008890BF /* InfoMessageViewController.swift in Sources */,
 				48463C051E06A021008890BF /* AppDelegate.swift in Sources */,
 				48463C0C1E06A078008890BF /* InfoMessageLauncher.swift in Sources */,
+				8B16E1CF1E095F7F00EDE5AE /* CircularProgressView.swift in Sources */,
 				48463C0E1E06A097008890BF /* UIKit Extensions.swift in Sources */,
+				8B16E1D11E09607300EDE5AE /* ProgressLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +561,7 @@
 				48463BF61E069FB7008890BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		48463BF71E069FB7008890BF /* Build configuration list for PBXNativeTarget "InfoMessageTests" */ = {
 			isa = XCConfigurationList;
@@ -561,6 +570,7 @@
 				48463BF91E069FB7008890BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		48463BFA1E069FB7008890BF /* Build configuration list for PBXNativeTarget "InfoMessageUITests" */ = {
 			isa = XCConfigurationList;
@@ -569,6 +579,7 @@
 				48463BFC1E069FB7008890BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
