@@ -3,7 +3,7 @@ Custom Informative message
 
 ## Demo
 
-[![Demo Doccou alpha](https://github.com/mihailsalari/InfoMessage/blob/master/Screens/Screen2.png)](https://www.youtube.com/)
+[![Demo Doccou alpha](https://github.com/mihailsalari/InfoMessage/blob/master/Screens/Screen2.png)](https://www.youtube.com/watch?v=yZ6Tr2cGp9g)
 
 ## Support
 

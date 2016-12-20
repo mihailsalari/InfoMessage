@@ -55,7 +55,7 @@ class InfoMessageLauncher: NSObject {
         return view
     }()
     
-    lazy var nameLabel: UILabel = {
+    fileprivate lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "HelveticaNeue-Light", size: 22)
         label.numberOfLines = 0
@@ -65,6 +65,9 @@ class InfoMessageLauncher: NSObject {
         
         return label
     }()
+    
+    fileprivate var counter = 0
+    fileprivate var timer: Timer?
     
     
     // MARK: - Initializers
@@ -141,6 +144,7 @@ extension InfoMessageLauncher {
 }
 
 
+// MARK: - SetProgress
 
 extension InfoMessageLauncher {
     
@@ -148,5 +152,29 @@ extension InfoMessageLauncher {
         self.progressContainerView.progress = CGFloat(progress)
         progressContainerView.textLabel?.style = .percent
         progressContainerView.textLabel?.value = progress as AnyObject?
+    }
+}
+
+
+// MARK: - AutoAnimation
+
+extension InfoMessageLauncher {
+    
+    func autoAnimation() {
+        self.showActionSheet()
+        timer = Timer.scheduledTimer(timeInterval: 0.15, target: self, selector: #selector(startAnimate), userInfo: nil, repeats: true)
+    }
+    
+    
+    @objc fileprivate func startAnimate() {
+        counter += 1
+        self.setProgress(Float(counter) / 100.0)
+        
+        if counter == 100 {
+            self.handleDismiss()
+            
+            timer?.invalidate()
+            counter = 0
+        }
     }
 }
